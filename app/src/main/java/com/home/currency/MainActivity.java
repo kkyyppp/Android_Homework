@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void showProblemMsg() {
         new AlertDialog.Builder(this)
-                .setTitle("Problem")
-                .setMessage("Please enter your NTD amount")
-                .setPositiveButton("OK", null)
+                .setTitle(R.string.problem)
+                .setMessage(R.string.please_enter_ntd)
+                .setPositiveButton(R.string.ok, null)
                 .show();
     }
 
@@ -57,16 +57,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (ntd <= 0) {
-            Toast.makeText(this, "The format isn't correct", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.format_wrong, Toast.LENGTH_SHORT).show();
             editTextNtd.setText("");
             return;
         }
 
         float usd = ntd / UsDollarToTaiwanDollar;
         new AlertDialog.Builder(this)
-                .setTitle("Result")
-                .setMessage("USD is "+ usd)
-                .setPositiveButton("OK", null)
+                .setTitle(R.string.result)
+                .setMessage(getString(R.string.usd_is)+ usd)
+                .setPositiveButton(R.string.ok, null)
                 .show();
     }
 
